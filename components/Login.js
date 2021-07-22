@@ -4,6 +4,7 @@ import {signIn, signUp} from '../utils/FirebaseUtil';
 import auth from '@react-native-firebase/auth';
 
 import { LoginManager, AccessToken } from 'react-native-fbsdk';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
 const {width, height} = Dimensions.get('window');
 
@@ -41,13 +42,29 @@ function Login({navigation}) {
             if (!data) {
                 throw 'Something went wrong obtaining access token';
             }
-            console.log(data);
             // Create a Firebase credential with the AccessToken
             const facebookCredential = auth.FacebookAuthProvider.credential(data.accessToken);
     
             // Sign-in the user with the credential
             await auth().signInWithCredential(facebookCredential);
         }catch (err) {console.log(err)}
+    }
+
+
+    GoogleSignin.configure({
+        webClientId: '382993704077-1frodbniql61euh2fpojhcn85mtses21.apps.googleusercontent.com',
+      });
+    const onGoogleLogin = async () => {
+        try{
+            // Get the users ID token
+            const { idToken } = await GoogleSignin.signIn();
+            
+            // Create a Google credential with the token
+            const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+            
+            // Sign-in the user with the credential
+            await auth().signInWithCredential(googleCredential);
+        }catch(e){console.log(e);}
     }
 
     return (
@@ -178,7 +195,7 @@ function Login({navigation}) {
                                 width: width/6,
                                 alignItems: 'center',
                             }}>
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={() => onGoogleLogin()}>
                                     <Image 
                                         source={require('../assets/icon/google.png')}
                                         resizeMode='contain'
