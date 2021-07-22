@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "382993704077",
+    "project_id": "appsocial-a8869",
+    "storage_bucket": "appsocial-a8869.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382993704077:android:bd1acac792dd49fda72ec4",
+        "android_client_info": {
+          "package_name": "com.appsocial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "382993704077-1frodbniql61euh2fpojhcn85mtses21.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiqkJqlhPp76jy8zYgbO2nct1SykxCnRA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "382993704077-1frodbniql61euh2fpojhcn85mtses21.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "382993704077-j7t0igaq6v27us41vv7k92119gim0vff.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.appsocial"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
